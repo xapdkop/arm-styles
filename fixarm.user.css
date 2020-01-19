@@ -1,57 +1,55 @@
 /* ==UserStyle==
 @name           #fixarm
 @namespace      https://github.com/xapdkop
-@version        1.0.1
+@version        1.1.0
 @description    This userstyle fixes some of bugs of arm.iipo.tu-bryansk.ru
 @homepageURL    https://github.com/xapdkop/fixarm
 @updateURL      https://raw.githubusercontent.com/xapdkop/fixarm/master/fixarm.user.css
 @author         xapdkop (https://github.com/xapdkop)
 @license        GPL-3.0-only
 ==/UserStyle== */
+
 @-moz-document domain("arm.iipo.tu-bryansk.ru") {
     * {
         box-sizing: border-box;
     }
-
+    /* fixes mobile view of discipline */
     body {
         display: flex;
         flex-flow: wrap;
         padding: 0;
     }
-
-    body > div {
-        overflow-x: auto;
+    body>div {
+        overflow-x: hidden;
     }
-
+    /* remove unnecessary code */
     .max-width-1200 {
-        max-width: inherit;
+        max-width: none;
     }
-
+    /* scroll table in mobile view */
     .table-responsive {
         overflow-x: auto;
     }
-
     @media (max-width: 768px) {
+        /* make container wider on mobile devices */
         .container {
             max-width: 100%;
         }
     }
-
+    /* add bottom padding for table */
     #tableCanvas {
         padding-bottom: 1.5rem;
     }
-
+    /* needs for sticky header column */
     #tableCanvas tr {
         position: relative;
     }
-
+    /* fix displaying cells if student's name is too big */
     td {
         position: relative;
     }
-
-    td > .visit-full,
-    td > .visit-none,
-    td > .visit-important {
+    /* fix displaying cells if student's name is too big */
+    td>.visit-full, td>.visit-none, td>.visit-important {
         position: absolute;
         display: flex;
         align-items: center;
@@ -61,20 +59,36 @@
         left: 0;
         right: 0;
     }
-
-    #tableCanvas tr > th:first-child,
-    #tableCanvas tr > td:first-child {
+    /* sticky header column */
+    #tableCanvas tr>th:first-child, #tableCanvas tr>td:first-child {
         box-sizing: border-box;
         position: sticky;
         left: -1px;
         background-color: white;
-        box-shadow: 1px 0 1px -1px #555, -1px 0 1px -1px #ddd;
+        box-shadow: 1px 0 1px -1px #555;
         z-index: 1;
     }
-
+    /* fix for jelly table */
     .work-item:hover {
         box-sizing: border-box;
         border: 1px solid #337ab7;
         outline: 2px solid #337ab7;
+    }
+    /* fix group switcher */
+    @media (max-width: 500px) {
+        .btn-toolbar>.btn-group {
+            flex-wrap: wrap;
+        }
+        .btn-group>.btn:not(:first-child) {
+            border-top-left-radius: .2rem;
+            border-bottom-left-radius: .2rem;
+        }
+        .btn-group .btn+.btn {
+            margin-left: 0;
+        }
+        .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
+            border-top-right-radius: .2rem;
+            border-bottom-right-radius: .2rem;
+        }
     }
 }
