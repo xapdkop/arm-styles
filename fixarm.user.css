@@ -8,7 +8,6 @@
 @author         xapdkop (https://github.com/xapdkop)
 @license        GPL-3.0-only
 ==/UserStyle== */
-
 @-moz-document domain("arm.iipo.tu-bryansk.ru") {
     * {
         box-sizing: border-box;
@@ -19,7 +18,7 @@
         flex-flow: wrap;
         padding: 0;
     }
-    body>div {
+    body > div {
         overflow-x: hidden;
     }
     /* remove unnecessary code */
@@ -32,7 +31,7 @@
             max-width: 100%;
         }
     }
-    .min-height-600>.container {
+    .min-height-600 > .container {
         overflow: auto;
     }
     /* add bottom padding for table */
@@ -45,7 +44,9 @@
         position: relative;
     }
     /* fix displaying cells if student's name is too big */
-    td>.visit-full, td>.visit-none, td>.visit-important {
+    td > .visit-full,
+    td > .visit-none,
+    td > .visit-important {
         position: absolute;
         display: flex;
         align-items: center;
@@ -67,22 +68,23 @@
     /* fix for jelly table */
     .work-item:hover {
         box-sizing: border-box;
+        cursor: pointer;
         border: 1px solid #337ab7;
         outline: 2px solid #337ab7;
     }
     /* fix group switcher */
     @media (max-width: 500px) {
-        .btn-toolbar>.btn-group {
+        .btn-toolbar > .btn-group {
             flex-wrap: wrap;
         }
-        .btn-group>.btn:not(:first-child) {
+        .btn-group > .btn:not(:first-child) {
             border-top-left-radius: .2rem;
             border-bottom-left-radius: .2rem;
         }
-        .btn-group .btn+.btn {
+        .btn-group .btn + .btn {
             margin-left: 0;
         }
-        .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
+        .btn-group > .btn:not(:last-child):not(.dropdown-toggle) {
             border-top-right-radius: .2rem;
             border-bottom-right-radius: .2rem;
         }
