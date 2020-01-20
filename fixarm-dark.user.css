@@ -1,158 +1,179 @@
 /* ==UserStyle==
-@name           #fixarm-whitedark
+@name           #fixarm-dark
 @namespace      https://github.com/xapdkop
-@version        1.1.1-beta2
+@version        1.2.1-beta1
 @description    This userstyle fixes some of bugs of arm.iipo.tu-bryansk.ru
 @homepageURL    https://github.com/xapdkop/fixarm
-@updateURL      https://raw.githubusercontent.com/xapdkop/fixarm/beta/fixarm.user.css
+@updateURL      https://raw.githubusercontent.com/xapdkop/fixarm/beta/fixarm-dark.user.css
 @author         xapdkop (https://github.com/xapdkop)
 @license        GPL-3.0-only
+@preprocessor   less
 ==/UserStyle== */
 
 @-moz-document domain("arm.iipo.tu-bryansk.ru") {
     * {
         box-sizing: border-box;
     }
-    /* fixes mobile view of discipline */
+    // fixes mobile view of discipline
     body {
         display: flex;
         flex-flow: wrap;
         padding: 0;
+
+        > div {
+            overflow-x: hidden;
+        }
     }
-    body>div {
-        overflow-x: hidden;
-    }
-    /* remove unnecessary code */
+    // remove unnecessary code
     .max-width-1200 {
         max-width: none;
     }
-    @media (max-width: 768px) {
-        /* make container wider on mobile devices */
-        .container {
+    .min-height-600 > .container {
+        overflow: auto;
+
+        @media (max-width: 768px) {
+            // make container wider on mobile devices
             max-width: 100%;
         }
     }
-    .min-height-600>.container {
-        overflow: auto;
-    }
-    /* add bottom padding for table */
+    // add bottom padding for table
     #tableCanvas {
         padding-bottom: 1.5rem;
         overflow-x: visible;
+        // fix displaying cells if student's name is too big
+        td {
+            position: relative;
+
+            > .visit-full,
+            > .visit-none,
+            > .visit-important {
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
+            // fix for jelly table
+            &.work-item:hover {
+                box-sizing: border-box;
+                cursor: pointer;
+                border: 1px solid #337ab7;
+                outline: 2px solid #337ab7;
+            }
+        }
     }
-    /* fix displaying cells if student's name is too big */
-    td {
-        position: relative;
-    }
-    /* fix displaying cells if student's name is too big */
-    td>.visit-full, td>.visit-none, td>.visit-important {
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    }
-    /* fix for jelly table */
-    .work-item:hover {
-        box-sizing: border-box;
-        cursor: pointer;
-        border: 1px solid #337ab7;
-        outline: 2px solid #337ab7;
-    }
-    /* fix group switcher */
+    // fix group switcher
     @media (max-width: 500px) {
-        .btn-toolbar>.btn-group {
+        .btn-toolbar > .btn-group {
             flex-wrap: wrap;
-        }
-        .btn-group>.btn:not(:first-child) {
-            border-top-left-radius: .2rem;
-            border-bottom-left-radius: .2rem;
-        }
-        .btn-group .btn+.btn {
-            margin-left: 0;
-        }
-        .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
-            border-top-right-radius: .2rem;
-            border-bottom-right-radius: .2rem;
+
+            .btn:not(:first-child) {
+                border-top-left-radius: 0.2rem;
+                border-bottom-left-radius: 0.2rem;
+            }
+
+            .btn + .btn {
+                margin-left: 0;
+            }
+
+            > .btn:not(:last-child):not(.dropdown-toggle) {
+                border-top-right-radius: 0.2rem;
+                border-bottom-right-radius: 0.2rem;
+            }
         }
     }
-    /* Dark theme */
+
+    // Dark theme
     body {
         color: #ddd;
         background-color: #222;
     }
-    td, th {
-        border-color: lightgray;
+    #tableCanvas {
+        th {
+            border-color: lightgray;
+        }
+        td {
+            border-color: lightgray;
+
+            > .visit-full,
+            > .visit-none,
+            > .visit-important,
+            .div-percent {
+                color: white;
+            }
+            > .visit-full,
+            .bg {
+                background-color: #218838;
+            }
+            > .visit-none {
+                background-color: #c82333;
+            }
+            > .visit-important {
+                background-color: #0069d9;
+            }
+            &.work-item:hover {
+                border-color: cyan;
+                outline-color: cyan;
+            }
+        }
     }
-    td>.visit-full, td>.visit-none, td>.visit-important, .div-percent {
-        color: white;
-    }
-    td>.visit-full, .bg {
-        background-color: #218838;
-    }
-    td>.visit-none {
-        background-color: #c82333;
-    }
-    td>.visit-important {
-        background-color: #0069d9;
-    }
-    .work-item:hover {
-        border-color: cyan;
-        outline-color: cyan;
-    }
-    .text-positive, .text-negative {
+    .text-positive,
+    .text-negative {
         background-color: transparent;
     }
     .btn-outline-primary {
         border-color: deepskyblue;
         color: powderblue;
     }
+    .btn-outline-secondary {
+        color: lightgray;
+        border-color: lightgray;
+    }
     .card {
         background-color: black;
-    }
-    .card-header {
-        background-color: #333;
-    }
-    .card-body {
-        background-color: #444;
-    }
-    .card-body>div>a {
-        color: deepskyblue;
+
+        &-header {
+            background-color: #333;
+        }
+        &-body {
+            background-color: #444;
+            > div > a {
+                color: deepskyblue;
+            }
+        }
     }
     .input-group-text {
         color: #ccc;
         background-color: #3f3f3f;
+
+        &:after {
+            content: ":";
+        }
+        &.text-muted {
+            color: darkgray !important;
+        }
+        &.border-bottom {
+            border-bottom-color: darkgray !important;
+        }
     }
     .custom-select {
         color: #ccc;
         background-color: #2a2a2a;
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23cacaca' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
     }
-    .input-group-text:after {
-        content: ":";
-    }
-    .text-muted {
-        color: darkgray !important;
-    }
-    .border-bottom {
-        border-bottom-color: darkgray !important;
-    }
     hr {
         border-top-color: rgba(255, 255, 255, 0.5);
-    }
-    .btn-outline-secondary {
-        color: lightgray;
-        border-color: lightgray;
     }
     .dropdown-menu {
         right: 0;
         background-color: #202020;
-    }
-    .dropdown-item:not(.active) {
-        color: #ddd !important;
-        background-color: #202020;
+
+        .dropdown-item:not(.active) {
+            color: #ddd !important;
+            background-color: #202020;
+        }
     }
 }

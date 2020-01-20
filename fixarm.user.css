@@ -1,81 +1,88 @@
 /* ==UserStyle==
 @name           #fixarm
 @namespace      https://github.com/xapdkop
-@version        1.1.1-beta2
+@version        1.2.1-beta1
 @description    This userstyle fixes some of bugs of arm.iipo.tu-bryansk.ru
 @homepageURL    https://github.com/xapdkop/fixarm
 @updateURL      https://raw.githubusercontent.com/xapdkop/fixarm/beta/fixarm.user.css
 @author         xapdkop (https://github.com/xapdkop)
 @license        GPL-3.0-only
+@preprocessor   less
 ==/UserStyle== */
 
 @-moz-document domain("arm.iipo.tu-bryansk.ru") {
     * {
         box-sizing: border-box;
     }
-    /* fixes mobile view of discipline */
+    // fixes mobile view of discipline
     body {
         display: flex;
         flex-flow: wrap;
         padding: 0;
+
+        > div {
+            overflow-x: hidden;
+        }
     }
-    body>div {
-        overflow-x: hidden;
-    }
-    /* remove unnecessary code */
+    // remove unnecessary code
     .max-width-1200 {
         max-width: none;
     }
-    @media (max-width: 768px) {
-        /* make container wider on mobile devices */
-        .container {
+    .min-height-600 > .container {
+        overflow: auto;
+
+        @media (max-width: 768px) {
+            // make container wider on mobile devices
             max-width: 100%;
         }
     }
-    .min-height-600>.container {
-        overflow: auto;
-    }
-    /* add bottom padding for table */
+    // add bottom padding for table
     #tableCanvas {
         padding-bottom: 1.5rem;
         overflow-x: visible;
+        // fix displaying cells if student's name is too big
+        td {
+            position: relative;
+
+            > .visit-full,
+            > .visit-none,
+            > .visit-important {
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
+            // fix for jelly table
+            &.work-item:hover {
+                box-sizing: border-box;
+                cursor: pointer;
+                border: 1px solid #337ab7;
+                outline: 2px solid #337ab7;
+            }
+        }
     }
-    /* fix displaying cells if student's name is too big */
-    td {
-        position: relative;
-    }
-    /* fix displaying cells if student's name is too big */
-    td>.visit-full, td>.visit-none, td>.visit-important {
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    }
-    /* fix for jelly table */
-    .work-item:hover {
-        box-sizing: border-box;
-        border: 1px solid #337ab7;
-        outline: 2px solid #337ab7;
-    }
-    /* fix group switcher */
+    // fix group switcher
     @media (max-width: 500px) {
-        .btn-toolbar>.btn-group {
+        .btn-toolbar > .btn-group {
             flex-wrap: wrap;
-        }
-        .btn-group>.btn:not(:first-child) {
-            border-top-left-radius: .2rem;
-            border-bottom-left-radius: .2rem;
-        }
-        .btn-group .btn+.btn {
-            margin-left: 0;
-        }
-        .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
-            border-top-right-radius: .2rem;
-            border-bottom-right-radius: .2rem;
+
+            .btn:not(:first-child) {
+                border-top-left-radius: 0.2rem;
+                border-bottom-left-radius: 0.2rem;
+            }
+
+            .btn + .btn {
+                margin-left: 0;
+            }
+
+            > .btn:not(:last-child):not(.dropdown-toggle) {
+                border-top-right-radius: 0.2rem;
+                border-bottom-right-radius: 0.2rem;
+            }
         }
     }
 }
