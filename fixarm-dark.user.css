@@ -2,7 +2,7 @@
 @name           #fixarm-dark
 @namespace      https://github.com/xapdkop
 @version        1.2.1-beta2
-@description    This userstyle fixes some of bugs of arm.iipo.tu-bryansk.ru
+@description    This is dark theme for arm.iipo.tu-bryansk.ru
 @homepageURL    https://github.com/xapdkop/fixarm
 @updateURL      https://raw.githubusercontent.com/xapdkop/fixarm/beta/fixarm-dark.user.css
 @author         xapdkop (https://github.com/xapdkop)
@@ -11,107 +11,6 @@
 ==/UserStyle== */
 
 @-moz-document domain("arm.iipo.tu-bryansk.ru") {
-    * {
-        box-sizing: border-box;
-    }
-    // fixes mobile view of discipline
-    body {
-        display: flex;
-        flex-flow: wrap;
-        padding: 0;
-
-        > div {
-            overflow-x: hidden;
-        }
-    }
-    // remove unnecessary code
-    .max-width-1200 {
-        max-width: none;
-    }
-    .min-height-600 > .container {
-        overflow: auto;
-
-        @media (max-width: 768px) {
-            // make container wider on mobile devices
-            max-width: 100%;
-        }
-    }
-    // add bottom padding for table
-    #tableCanvas {
-        padding-bottom: 1.5rem;
-        overflow-x: visible;
-        // fix displaying cells if student's name is too big
-        td {
-            position: relative;
-
-            > .visit-full,
-            > .visit-none,
-            > .visit-important {
-                position: absolute;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-            }
-            // fix for jelly table
-            &.work-item:hover {
-                box-sizing: border-box;
-                cursor: pointer;
-                border: 1px solid #337ab7;
-                outline: 2px solid #337ab7;
-            }
-        }
-    }
-    // flex cards on main page
-    .card-columns {
-        display: flex;
-        flex-direction: row;
-        justify-content: spaces-between;
-        align-items: stretch;
-        flex-wrap: wrap;
-
-        > div {
-            flex: 1 0 25%;
-            margin: 0 .5rem;
-        }
-
-        // get rid of this shit
-        @media (min-width: 576px) {
-            -webkit-column-count: unset;
-            -moz-column-count: unset;
-            column-count: unset;
-            -webkit-column-gap: unset;
-            -moz-column-gap: unset;
-            column-gap: unset;
-            orphans: unset;
-            widows: unset;
-        }
-    }
-    // fix group switcher
-    @media (max-width: 500px) {
-        .btn-toolbar > .btn-group {
-            flex-wrap: wrap;
-
-            .btn:not(:first-child) {
-                border-top-left-radius: 0.2rem;
-                border-bottom-left-radius: 0.2rem;
-            }
-
-            .btn + .btn {
-                margin-left: 0;
-            }
-
-            > .btn:not(:last-child):not(.dropdown-toggle) {
-                border-top-right-radius: 0.2rem;
-                border-bottom-right-radius: 0.2rem;
-            }
-        }
-    }
-
-    // Dark theme
     body {
         color: #ddd;
         background-color: #222;
@@ -158,7 +57,7 @@
         border-color: lightgray;
     }
     .card {
-        background-color: black;
+        background-color: #111;
 
         &-header {
             background-color: #333;
@@ -174,9 +73,6 @@
         color: #ccc;
         background-color: #3f3f3f;
 
-        &:after {
-            content: ":";
-        }
         &.text-muted {
             color: darkgray !important;
         }

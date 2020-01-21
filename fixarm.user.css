@@ -36,6 +36,9 @@
             max-width: 100%;
         }
     }
+    .input-group-text:after {
+        content: ":";
+    }
     // add bottom padding for table
     #tableCanvas {
         padding-bottom: 1.5rem;
