@@ -29,14 +29,19 @@
                 color: white;
             }
             > .visit-full,
-            .bg {
+            .bg,
+            .mark_5 {
                 background-color: #218838;
             }
-            > .visit-none {
+            > .visit-none,
+            .mark_3 {
                 background-color: #c82333;
             }
             > .visit-important {
                 background-color: #0069d9;
+            }
+            .mark_4 {
+                background-color: #d8a200;
             }
             &.work-item:hover {
                 border-color: cyan;
