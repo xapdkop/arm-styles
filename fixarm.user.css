@@ -14,7 +14,7 @@
     * {
         box-sizing: border-box;
     }
-    // fixes mobile view of discipline
+    /* fixes mobile view of discipline */
     body {
         display: flex;
         flex-flow: wrap;
@@ -24,7 +24,7 @@
             overflow-x: hidden;
         }
     }
-    // remove unnecessary code
+    /* remove unnecessary code */
     .max-width-1200 {
         max-width: none;
     }
@@ -32,18 +32,18 @@
         overflow: auto;
 
         @media (max-width: 768px) {
-            // make container wider on mobile devices
+            /* make container wider on mobile devices */
             max-width: 100%;
         }
     }
     .input-group-text:after {
         content: ":";
     }
-    // add bottom padding for table
+    /* add bottom padding for table */
     #tableCanvas {
         padding-bottom: 1.5rem;
         overflow-x: visible;
-        // fix displaying cells if student's name is too big
+        /* fix displaying cells if student's name is too big */
         td {
             position: relative;
 
@@ -59,7 +59,7 @@
                 left: 0;
                 right: 0;
             }
-            // fix for jelly table
+            /* fix for jelly table */
             &.work-item:hover {
                 box-sizing: border-box;
                 cursor: pointer;
@@ -68,7 +68,7 @@
             }
         }
     }
-    // flex cards on main page
+    /* flex cards on main page */
     .card-columns {
         display: flex;
         flex-direction: row;
@@ -81,7 +81,7 @@
             margin: 0 .5rem;
         }
 
-        // get rid of this shit
+        /* get rid of this shit */
         @media (min-width: 576px) {
             -webkit-column-count: unset;
             -moz-column-count: unset;
@@ -93,7 +93,7 @@
             widows: unset;
         }
     }
-    // fix group switcher
+    /* fix group switcher */
     @media (max-width: 500px) {
         .btn-toolbar > .btn-group {
             flex-wrap: wrap;
