@@ -11,9 +11,6 @@
 ==/UserStyle== */
 
 @-moz-document domain("arm.iipo.tu-bryansk.ru") {
-    * {
-        box-sizing: border-box;
-    }
     /* fixes mobile view of discipline */
     body {
         display: flex;
@@ -22,11 +19,25 @@
 
         > div {
             overflow-x: hidden;
+            padding: 0 .25rem;
         }
     }
     /* remove unnecessary code */
     .max-width-1200 {
-        max-width: none;
+        max-width: 100%;
+
+        @media (min-width: 576px)  {
+            max-width: 540px;
+        }
+        @media (min-width: 768px)  {
+            max-width: 720px;
+        }
+        @media (min-width: 992px)  {
+            max-width: 960px;
+        }
+        @media (min-width: 1200px) {
+            max-width: 1140px;
+        }
     }
     .min-height-600 > .container {
         overflow: auto;
@@ -91,6 +102,31 @@
             column-gap: unset;
             orphans: unset;
             widows: unset;
+        }
+    }
+    .container > div > ul.list-group {
+        margin-bottom: 1.5rem;
+    }
+    .vh-100 {
+        min-height: unset;
+    }
+    .dropdown-toggle {
+        max-width: 30vw;
+        overflow-wrap: break-word;
+        white-space: normal;
+    }
+    .dropdown-menu[x-placement^="bottom"] {
+        right: 0;
+        overflow-x: hidden;
+
+        > .dropdown-item {
+            overflow-wrap: break-word;
+            white-space: normal;
+
+            border-top: 1px solid darkgray;
+            &:last-child {
+                border-bottom: 1px solid darkgray;
+            }
         }
     }
     /* fix group switcher */
