@@ -102,4 +102,23 @@
             background-color: #202020;
         }
     }
+    .container ul.list-group > li.list-group-item {
+        background-color: #444;
+
+        h6 {
+            color: #ddd !important;
+
+            > span {
+                color: #aaa;
+
+                &.text-positive {
+                    color: mediumseagreen;
+                }
+
+                &.text-negative {
+                    color: salmon;
+                }
+            }
+        }
+    }
 }
