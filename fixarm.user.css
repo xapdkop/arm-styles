@@ -9,7 +9,6 @@
 @license        GPL-3.0-only
 @preprocessor   less
 ==/UserStyle== */
-
 @-moz-document domain("arm.iipo.tu-bryansk.ru") {
     /* fixes mobile view of discipline */
     body {
@@ -22,29 +21,22 @@
         }
         > container,
         .max-width-1200 {
-            max-width: 100%;
-            /*            @media (min-width: 576px) {
-                max-width: 540px;
-            }
-            @media (min-width: 768px) {
-                max-width: 720px;
-            }
-            @media (min-width: 992px) {
-                max-width: 960px;
-            }
-            @media (min-width: 1200px) {
-                max-width: 1140px;
-            }*/
+            max-width: 90vw;
+            margin: 0 auto;
         }
     }
     /* remove unnecessary code */
-    .min-height-600 > .container {
-        overflow-x: auto;
-        max-width: 100%;
-        width: min-content;
-        @media (max-width: 768px) {
-            /* make container wider on mobile devices */
+    .min-height-600 {
+        padding: 0 15px;
+        > .container {
+            padding: 0;
+            overflow-x: auto;
             max-width: 100%;
+            width: min-content;
+            @media (max-width: 768px) {
+                /* make container wider on mobile devices */
+                max-width: 100%;
+            }
         }
     }
     .input-group {
