@@ -49,6 +49,29 @@
             max-width: 100%;
         }
     }
+    .input-group {
+        > select.custom-select,
+        > div.input-group-prepend {
+            border-radius: 0;
+            width: auto;
+            margin-left: 0;
+            margin-right: 0;
+            max-width: 100%;
+        }
+        > select.custom-select {
+            flex: 2 0 35%;
+        }
+        div.input-group-prepend {
+            flex: 1 0 auto;
+            label.input-group-text {
+                overflow-x: hidden;
+                width: 100%;
+            }
+        }
+        &.custom-select {
+            width: auto;
+        }
+    }
     .input-group-text:after {
         content: ":";
     }
