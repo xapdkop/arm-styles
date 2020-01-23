@@ -23,7 +23,7 @@
         > container,
         .max-width-1200 {
             max-width: 100%;
-            @media (min-width: 576px) {
+            /*            @media (min-width: 576px) {
                 max-width: 540px;
             }
             @media (min-width: 768px) {
@@ -34,24 +34,28 @@
             }
             @media (min-width: 1200px) {
                 max-width: 1140px;
-            }
+            }*/
         }
     }
     /* remove unnecessary code */
     .min-height-600 > .container {
-        overflow: auto;
+        overflow-x: auto;
+        max-width: 100%;
+        width: min-content;
         @media (max-width: 768px) {
             /* make container wider on mobile devices */
             max-width: 100%;
         }
     }
     .input-group {
+        * {
+            border-radius: 0 !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
         > select.custom-select,
         > div.input-group-prepend {
-            border-radius: 0;
             width: auto;
-            margin-left: 0;
-            margin-right: 0;
             max-width: 100%;
         }
         > select.custom-select {
@@ -72,9 +76,8 @@
         content: ":";
     }
     /* add bottom padding for table */
-    #tableCanvas {
+    table#tableCanvas {
         padding-bottom: 1.5rem;
-        overflow-x: visible;
         /* fix displaying cells if student's name is too big */
         td {
             position: relative;
@@ -129,7 +132,8 @@
         min-height: unset;
     }
     /* TODO: use flex here (for subject name and data view selector */
-    .btn-toolbar, .btn-group {
+    .btn-toolbar,
+    .btn-group {
         max-width: 100%;
     }
     .btn-group {
