@@ -12,6 +12,7 @@
 @-moz-document domain("arm.iipo.tu-bryansk.ru") {
     /* fixes mobile view of discipline */
     body {
+        overscroll-behavior-x: none; /* dck u google, I don't need this shit */
         display: flex;
         flex-flow: wrap;
         padding: 0;
