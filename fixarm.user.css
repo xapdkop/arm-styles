@@ -40,6 +40,10 @@
             }
         }
     }
+    .maxheight50 {
+        height: auto;
+        max-height: 50px;
+    }
     .input-group {
         * {
             border-radius: 0 !important;
@@ -76,7 +80,8 @@
             position: relative;
             > .visit-full,
             > .visit-none,
-            > .visit-important {
+            > .visit-important,
+            > .visit-half {
                 position: absolute;
                 display: flex;
                 align-items: center;
@@ -85,6 +90,16 @@
                 bottom: 0;
                 left: 0;
                 right: 0;
+            }
+            &.visit-empty {
+                position: relative;
+                &::after {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    content: "?";
+                }
             }
             /* fix for jelly table */
             &.work-item:hover {
