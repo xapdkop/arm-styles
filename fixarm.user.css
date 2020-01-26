@@ -1,94 +1,193 @@
 /* ==UserStyle==
 @name           #fixarm
 @namespace      https://github.com/xapdkop
-@version        1.1.0
+@version        1.2.1-beta5
 @description    This userstyle fixes some of bugs of arm.iipo.tu-bryansk.ru
 @homepageURL    https://github.com/xapdkop/fixarm
-@updateURL      https://raw.githubusercontent.com/xapdkop/fixarm/master/fixarm.user.css
+@updateURL      https://raw.githubusercontent.com/xapdkop/fixarm/beta/fixarm.user.css
 @author         xapdkop (https://github.com/xapdkop)
 @license        GPL-3.0-only
+@preprocessor   less
 ==/UserStyle== */
-
 @-moz-document domain("arm.iipo.tu-bryansk.ru") {
-    * {
-        box-sizing: border-box;
-    }
     /* fixes mobile view of discipline */
     body {
+        overscroll-behavior-x: none;
         display: flex;
         flex-flow: wrap;
         padding: 0;
-    }
-    body>div {
-        overflow-x: hidden;
-    }
-    /* remove unnecessary code */
-    .max-width-1200 {
-        max-width: none;
-    }
-    /* scroll table in mobile view */
-    .table-responsive {
-        overflow-x: auto;
-    }
-    @media (max-width: 768px) {
-        /* make container wider on mobile devices */
-        .container {
-            max-width: 100%;
+        > div {
+            overflow-x: hidden;
+            padding: 0 0.25rem;
+        }
+        > container,
+        .max-width-1200 {
+            max-width: 90vw;
+            margin: 0 auto;
         }
     }
+    /* remove unnecessary code */
+    .min-height-600 {
+        padding: 0 15px;
+        > .container {
+            padding: 0;
+            overflow-x: auto;
+            max-width: 100%;
+            width: min-content;
+            @media (max-width: 768px) {
+                /* make container wider on mobile devices */
+                max-width: 100%;
+            }
+        }
+    }
+    .maxheight50 {
+        height: auto;
+        max-height: 50px;
+    }
+    .input-group {
+        * {
+            border-radius: 0 !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+        > select.custom-select,
+        > div.input-group-prepend {
+            width: auto;
+            max-width: 100%;
+        }
+        > select.custom-select {
+            flex: 2 0 35%;
+        }
+        div.input-group-prepend {
+            flex: 1 0 auto;
+            label.input-group-text {
+                overflow-x: hidden;
+                width: 100%;
+            }
+        }
+        &.custom-select {
+            width: auto;
+        }
+    }
+    .input-group-text:after {
+        content: ":";
+    }
     /* add bottom padding for table */
-    #tableCanvas {
+    table#tableCanvas {
         padding-bottom: 1.5rem;
+        /* fix displaying cells if student's name is too big */
+        td {
+            position: relative;
+            > .visit-full,
+            > .visit-none,
+            > .visit-important,
+            > .visit-half {
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
+            &.visit-empty {
+                position: relative;
+                &::after {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    content: "?";
+                }
+            }
+            /* fix for jelly table */
+            &.work-item:hover {
+                box-sizing: border-box;
+                cursor: pointer;
+                border: 1px solid #337ab7;
+                outline: 2px solid #337ab7;
+            }
+        }
     }
-    /* needs for sticky header column */
-    #tableCanvas tr {
-        position: relative;
-    }
-    /* fix displaying cells if student's name is too big */
-    td {
-        position: relative;
-    }
-    /* fix displaying cells if student's name is too big */
-    td>.visit-full, td>.visit-none, td>.visit-important {
-        position: absolute;
+    /* flex cards on main page */
+    .card-columns {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        top: 0;
-        bottom: 0;
-        left: 0;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        > div {
+            flex: 1 0 31%;
+            max-width: 98%;
+            margin: 0 1%;
+            > .card {
+                width: 100%;
+            }
+            @media (max-width: 600px) {
+                flex-basis: 98%;
+            }
+        }
+        /* get rid of this shit */
+        @media (min-width: 576px) {
+            -webkit-column-count: unset;
+            -moz-column-count: unset;
+            column-count: unset;
+            -webkit-column-gap: unset;
+            -moz-column-gap: unset;
+            column-gap: unset;
+            orphans: unset;
+            widows: unset;
+        }
+    }
+    .container > div > ul.list-group {
+        margin-bottom: 1.5rem;
+    }
+    .vh-100 {
+        min-height: unset;
+    }
+    /* TODO: use flex here (for subject name and data view selector */
+    .btn-toolbar,
+    .btn-group {
+        max-width: 100%;
+    }
+    .btn-group {
+        margin-right: 0 !important;
+        > .btn.dropdown-toggle {
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+            max-width: 35vw;
+            @media (max-width: 768px) {
+                max-width: 100%;
+            }
+        }
+    }
+    .dropdown-menu[x-placement^="bottom"] {
         right: 0;
-    }
-    /* sticky header column */
-    #tableCanvas tr>th:first-child, #tableCanvas tr>td:first-child {
-        box-sizing: border-box;
-        position: sticky;
-        left: -1px;
-        background-color: white;
-        box-shadow: 1px 0 1px -1px #555;
-        z-index: 1;
-    }
-    /* fix for jelly table */
-    .work-item:hover {
-        box-sizing: border-box;
-        border: 1px solid #337ab7;
-        outline: 2px solid #337ab7;
+        overflow-x: hidden;
+        > .dropdown-item {
+            overflow-wrap: break-word;
+            white-space: normal;
+            border-top: 1px solid darkgray;
+            &:last-child {
+                border-bottom: 1px solid darkgray;
+            }
+        }
     }
     /* fix group switcher */
     @media (max-width: 500px) {
-        .btn-toolbar>.btn-group {
+        .btn-toolbar > .btn-group {
             flex-wrap: wrap;
-        }
-        .btn-group>.btn:not(:first-child) {
-            border-top-left-radius: .2rem;
-            border-bottom-left-radius: .2rem;
-        }
-        .btn-group .btn+.btn {
-            margin-left: 0;
-        }
-        .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
-            border-top-right-radius: .2rem;
-            border-bottom-right-radius: .2rem;
+            .btn:not(:first-child) {
+                border-top-left-radius: 0.2rem;
+                border-bottom-left-radius: 0.2rem;
+            }
+            .btn + .btn {
+                margin-left: 0;
+            }
+            > .btn:not(:last-child):not(.dropdown-toggle) {
+                border-top-right-radius: 0.2rem;
+                border-bottom-right-radius: 0.2rem;
+            }
         }
     }
 }
