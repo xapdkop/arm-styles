@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           #fix-arm
 @namespace      https://github.com/xapdkop
-@version        1.3.0-beta1
+@version        1.3.0-beta2
 @description    This userstyle fixes some of bugs of arm.iipo.tu-bryansk.ru
 @homepageURL    https://github.com/xapdkop/arm-styles
 @updateURL      https://raw.githubusercontent.com/xapdkop/arm-styles/beta/fix-arm.user.css
@@ -125,7 +125,7 @@
     }
 
     .max-width-1200 > div {
-        margin: 0 2px;
+        margin: 0 10px;
         
         &:first-child {
             flex: 1 0 35vw;
