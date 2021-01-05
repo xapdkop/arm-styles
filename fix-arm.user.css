@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           #fix-arm
 @namespace      https://github.com/xapdkop
-@version        1.3.0-beta3
+@version        1.3.0-beta4
 @description    This userstyle fixes some of bugs of arm.iipo.tu-bryansk.ru
 @homepageURL    https://github.com/xapdkop/arm-styles
 @updateURL      https://raw.githubusercontent.com/xapdkop/arm-styles/beta/fix-arm.user.css
@@ -201,18 +201,24 @@
 
     .ngdialog {
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         align-items: center;
 
-        &.ngdialog-theme-plain .ngdialog-content {
-            width: auto;
-            max-width: 75%;
-            padding-right: calc(1em + 30px);
-            border-radius: 0.25rem;
-            margin: 0 5px;
+        &.ngdialog-theme-plain {
+            padding-bottom: 16px;
+            padding-top: 16px;
 
-            @media (max-width: 768px) {
-                max-width: 100%;
+            .ngdialog-content {
+                width: auto;
+                max-width: 75%;
+                padding-right: calc(1em + 30px);
+                border-radius: 0.25rem;
+                margin: 0 5px;
+
+                @media (max-width: 768px) {
+                    max-width: 100%;
+                }
             }
         }
     }
