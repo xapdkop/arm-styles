@@ -21,3 +21,7 @@ To use on mobile you need to install [Kiwi Browser](https://play.google.com/stor
     - [#darkify-arm](https://raw.githubusercontent.com/xapdkop/arm-styles/beta/darkify-arm.user.css)
 
 You can just click on any style and it will be opened for install (if you have installed Stylus).
+
+## Options
+
+By default, the students column on the course page will stick to the left border when scrolling. To prevent it disable "**Make the students column sticky**" option in the style settings.

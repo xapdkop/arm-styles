@@ -1,13 +1,14 @@
 /* ==UserStyle==
 @name           #fix-arm
 @namespace      https://github.com/xapdkop
-@version        1.3.0-beta2
+@version        1.3.0-beta3
 @description    This userstyle fixes some of bugs of arm.iipo.tu-bryansk.ru
 @homepageURL    https://github.com/xapdkop/arm-styles
 @updateURL      https://raw.githubusercontent.com/xapdkop/arm-styles/beta/fix-arm.user.css
 @author         xapdkop (https://github.com/xapdkop)
 @license        GPL-3.0-only
 @preprocessor   less
+@var checkbox stickyStudentColumn "Make the students column sticky" 1
 ==/UserStyle== */
 @-moz-document domain("arm.iipo.tu-bryansk.ru") {
     html,
@@ -25,6 +26,7 @@
         overscroll-behavior-x: none;
         flex-flow: wrap;
         margin-bottom: 10px;
+
         > div {
             overflow-x: hidden;
             padding: 0 0.25rem;
@@ -33,16 +35,19 @@
                 display: none;
             }
         }
+
         > container,
         .max-width-1200 {
             max-width: 90vw;
             margin: 0 auto;
         }
     }
+
     .maxheight50 {
         height: auto;
         max-height: 50px;
     }
+
     .input-group {
         > select.custom-select,
         > div.input-group-prepend > label.input-group-text {
@@ -50,15 +55,18 @@
             margin-left: 5px !important;
             margin-right: 5px !important;
         }
+
         > select.custom-select,
         > div.input-group-prepend {
             width: auto;
             max-width: 100%;
         }
+
         > select.custom-select {
             flex: 2 0 35%;
             margin: 5px;
         }
+
         div.input-group-prepend {
             flex: 1 0 auto;
 
@@ -67,26 +75,32 @@
                 width: 100%;
             }
         }
+
         &.custom-select {
             width: auto;
         }
     }
+
     .input-group-text {
         margin: 5px 0;
-        &:after {
+
+        &::after {
             content: ':';
         }
     }
+
     /* flex cards on main page */
     .card-columns {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         flex-wrap: wrap;
+
         > div {
             flex: 1 0 31%;
             max-width: 98%;
             margin: 0 1% 0.75rem 1%;
+
             > .card {
                 display: flex;
                 width: 100%;
@@ -95,10 +109,12 @@
                 border-radius: 0.25rem;
                 margin: 0;
             }
+
             @media (max-width: 600px) {
                 flex-basis: 98%;
             }
         }
+
         /* get rid of this shit */
         @media (min-width: 576px) {
             -webkit-column-count: unset;
@@ -111,13 +127,15 @@
             widows: unset;
         }
     }
+
     .container > div > ul.list-group {
         margin-bottom: 1.5rem;
     }
+
     .vh-100 {
         min-height: unset;
     }
-    
+
     .max-width-1200 {
         width: 100%;
         flex-wrap: wrap !important;
@@ -126,69 +144,83 @@
 
     .max-width-1200 > div {
         margin: 0 10px;
-        
+
         &:first-child {
-            flex: 1 0 35vw;
+            flex: 10 0 35%;
+
+            @media (max-width: 576px) {
+                flex-basis: 100%;
+            }
+        }
+
+        &.btn-toolbar {
+            flex: 1 1 auto;
         }
     }
-    
-    .btn-toolbar,
-    .btn-group {
-        max-width: 100%;
-        flex-wrap: nowrap;
-    }
+
     .btn-group {
         margin: 5px 0 !important;
+
+        .btn-toolbar & {
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            > .btn {
+                margin: 3px 2px;
+                flex-grow: 1;
+                border-radius: 0.2rem !important;
+            }
+        }
+
         > .btn.dropdown-toggle {
             overflow-x: hidden;
             text-overflow: ellipsis;
             max-width: 35vw;
+
             @media (max-width: 768px) {
                 max-width: 100%;
             }
         }
     }
+
     .dropdown-menu[x-placement^='bottom'] {
         right: 0;
         overflow-x: hidden;
+
         > .dropdown-item {
             overflow-wrap: break-word;
             white-space: normal;
             border-top: 1px solid darkgray;
+
             &:last-child {
                 border-bottom: 1px solid darkgray;
             }
         }
     }
+
     .ngdialog {
-        left: unset;
-        right: unset;
-        top: unset;
-        bottom: unset;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &.ngdialog-theme-plain .ngdialog-content {
+            width: auto;
+            max-width: 75%;
+            padding-right: calc(1em + 30px);
+            border-radius: 0.25rem;
+            margin: 0 5px;
+
+            @media (max-width: 768px) {
+                max-width: 100%;
+            }
+        }
     }
-    .ngdialog.ngdialog-theme-plain .ngdialog-content {
-        width: auto;
-        padding-right: calc(1em + 30px);
-    }
-    .ngdialog-content {
-        border-radius: 0.25rem;
-    }
+
     .fixed-top {
         position: static;
         width: 100%;
         flex-grow: 0;
-    }
-    /* fix group switcher */
-    @media (max-width: 500px) {
-        .btn-toolbar > .btn-group {
-            flex-wrap: wrap;
-            .btn:not(:first-child) {
-                border-radius: 0.2rem;
-            }
-            .btn + .btn {
-                margin-left: 0;
-            }
-        }
     }
 
     body > .container > div > div:first-child,
@@ -200,12 +232,18 @@
         padding: 0 0.5rem;
 
         > .container {
+            display: flex;
+            justify-content: center;
             overflow-x: auto;
             overflow-y: auto;
             padding: 0;
             max-width: 90vw;
             margin-bottom: 0.25rem;
             margin-right: 1px;
+
+            > .table-responsive {
+                width: auto;
+            }
         }
     }
 
@@ -216,18 +254,22 @@
         overflow-y: auto;
 
         /* make student's column sticky to left */
-        td,
-        th {
-            &:nth-child(2) {
-                position: sticky;
-                left: -1px;
-                z-index: 2;
-                background-color: white;
+        & when (@stickyStudentColumn =1) {
+            td,
+            th {
+                &.text-left {
+                    position: sticky;
+                    left: -1px;
+                    z-index: 2;
+                    background-color: white;
+                }
             }
         }
+
         /* fix displaying cells if student's name is too big */
         td {
             position: relative;
+
             > .visit-full,
             > .visit-none,
             > .visit-important,
@@ -241,8 +283,10 @@
                 left: 0;
                 right: 0;
             }
+
             &.visit-empty {
                 position: relative;
+
                 &::after {
                     position: absolute;
                     top: 50%;
@@ -251,6 +295,7 @@
                     content: '?';
                 }
             }
+
             /* fix for jelly table */
             &.work-item:hover {
                 box-sizing: border-box;

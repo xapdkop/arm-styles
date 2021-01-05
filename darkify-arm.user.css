@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           #darkify-arm
 @namespace      https://github.com/xapdkop
-@version        1.3.0-beta1
+@version        1.3.0-beta3
 @description    This is dark theme for arm.iipo.tu-bryansk.ru
 @homepageURL    https://github.com/xapdkop/arm-styles
 @updateURL      https://raw.githubusercontent.com/xapdkop/arm-styles/beta/darkify-arm.user.css
@@ -14,10 +14,11 @@
         color: #ddd;
         background-color: #222;
     }
+
     table#tableCanvas {
         td,
         th {
-            &:nth-child(2) {
+            &.text-left {
                 background-color: #222;
             }
         }
@@ -25,9 +26,11 @@
         th {
             border-color: lightgray;
         }
+
         td {
             color: #eee;
             border-color: lightgray;
+
             > .visit-full,
             > .visit-none,
             > .visit-important,
@@ -36,123 +39,159 @@
             .div-percent {
                 color: white;
             }
+
             > .visit-full,
             .bg {
                 background-color: #218838;
             }
+
             .mark_5 {
                 background-color: darkgreen;
             }
+
             .mark_3 {
                 background-color: orangered;
             }
+
             > .visit-none,
             .mark_2 {
                 background-color: crimson;
             }
+
             > .visit-important {
                 background-color: slateblue;
             }
+
             > .visit-half,
             .mark_4 {
                 background-color: goldenrod;
             }
+
             .mark_1 {
                 background-color: darkred;
             }
+
             &.work-item:hover {
                 border-color: cyan;
                 outline-color: cyan;
             }
         }
     }
+
     .text-positive,
     .text-negative {
         background-color: transparent;
     }
+
     .btn-outline-primary {
         border-color: deepskyblue;
         color: powderblue;
     }
+
     .btn-outline-secondary {
         color: lightgray;
         border-color: lightgray;
     }
+
     .card {
         background-color: transparent;
+
         &-header {
             background-color: #333;
         }
+
         &-body {
             background-color: #444;
+
             > div > a {
                 color: deepskyblue;
             }
         }
     }
+
     .border-bottom {
         border-bottom-color: #a9a9a9b0 !important;
     }
+
     .input-group-text,
     .custom-select {
+        /* border-color: #a9a9a9cf !important; */
+        /*background-color: #333 !important;*/
         border: none;
     }
+
     .input-group-text {
         background-color: #444 !important;
     }
+
     .input-group {
         .input-group-text {
             color: #d8d8d8;
             background-color: transparent;
+
             &.text-muted {
                 color: #dfdfdf !important;
             }
         }
+
         select {
             color: #dedede;
         }
     }
+
     .custom-select {
         color: #ccc;
         background-color: #333;
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23cacaca' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
     }
+
     hr {
         border-top-color: rgba(255, 255, 255, 0.5);
     }
+
     .dropdown-toggle {
         border: none;
         background-color: #333;
     }
+
     .dropdown-menu {
         background-color: #202020;
+
         .dropdown-item:not(.active) {
             color: #ddd !important;
             border-top: 1px solid darkgray;
+
             &:last-child {
                 border-bottom: 1px solid darkgray;
             }
+
             &:hover {
                 color: #f4f4f4 !important;
                 background-color: #606060;
             }
         }
     }
+
     .container ul.list-group > li.list-group-item {
         background-color: #444;
+
         h6 {
             color: #ddd !important;
+
             > span {
                 color: #aaa;
+
                 &.text-positive {
                     color: mediumseagreen;
                 }
+
                 &.text-negative {
                     color: salmon;
                 }
             }
         }
     }
+
     .form-group > div > input {
         &[type='text'],
         &[type='password'] {
