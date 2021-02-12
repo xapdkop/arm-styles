@@ -1,0 +1,348 @@
+/* ==UserStyle==
+@name           #fix-arm
+@namespace      https://github.com/xapdkop
+@version        1.3.0
+@description    This userstyle fixes some of bugs of arm.iipo.tu-bryansk.ru
+@homepageURL    https://github.com/xapdkop/arm-styles
+@updateURL      https://raw.githubusercontent.com/xapdkop/arm-styles/beta/fix-arm.user.css
+@author         xapdkop (https://github.com/xapdkop)
+@license        GPL-3.0-only
+@preprocessor   less
+@var checkbox stickyStudentColumn "Make the students column sticky" 1
+==/UserStyle== */
+
+@-moz-document domain("arm.iipo.tu-bryansk.ru") {
+    html,
+    body {
+        height: auto;
+        margin: 0;
+    }
+
+    .body-content {
+        padding: 0;
+    }
+
+    /* fixes mobile view of discipline */
+    body {
+        overscroll-behavior-x: none;
+        flex-flow: wrap;
+        margin-bottom: 10px;
+
+        > div {
+            overflow-x: hidden;
+            padding: 0 0.25rem;
+
+            > div > p {
+                display: none;
+            }
+        }
+
+        > container,
+        .max-width-1200 {
+            max-width: 90vw;
+            margin: 0 auto;
+        }
+    }
+
+    .maxheight50 {
+        height: auto;
+        max-height: 50px;
+    }
+
+    .input-group {
+        > select.custom-select,
+        > div.input-group-prepend > label.input-group-text {
+            border-radius: 5px !important;
+            margin-left: 5px !important;
+            margin-right: 5px !important;
+        }
+
+        > select.custom-select,
+        > div.input-group-prepend {
+            width: auto;
+            max-width: 100%;
+        }
+
+        > select.custom-select {
+            flex: 2 0 35%;
+            margin: 5px;
+        }
+
+        div.input-group-prepend {
+            flex: 1 0 auto;
+
+            label.input-group-text {
+                overflow-x: hidden;
+                width: 100%;
+            }
+        }
+
+        &.custom-select {
+            width: auto;
+        }
+    }
+
+    .input-group-text {
+        margin: 5px 0;
+
+        &::after {
+            content: ':';
+        }
+    }
+
+    /* flex cards on main page */
+    .card-columns {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        > div {
+            flex: 1 0 31%;
+            max-width: 98%;
+            margin: 0 1% 0.75rem 1%;
+
+            > .card {
+                display: flex;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                border-radius: 0.25rem;
+                margin: 0;
+            }
+
+            @media (max-width: 600px) {
+                flex-basis: 98%;
+            }
+        }
+
+        /* get rid of this shit */
+        @media (min-width: 576px) {
+            -webkit-column-count: unset;
+            -moz-column-count: unset;
+            column-count: unset;
+            -webkit-column-gap: unset;
+            -moz-column-gap: unset;
+            column-gap: unset;
+            orphans: unset;
+            widows: unset;
+        }
+    }
+
+    .container > div > ul.list-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .vh-100 {
+        min-height: unset;
+    }
+
+    .max-width-1200 {
+        width: 100%;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+    }
+
+    .max-width-1200 > div {
+        margin: 0 10px;
+
+        &:first-child {
+            flex: 10 0 35%;
+
+            @media (max-width: 576px) {
+                flex-basis: 100%;
+            }
+        }
+
+        &.btn-toolbar {
+            flex: 1 1 auto;
+        }
+    }
+
+    .btn-group {
+        margin: 5px 0 !important;
+
+        .btn-toolbar & {
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            > .btn {
+                margin: 3px 2px;
+                flex-grow: 1;
+                border-radius: 0.2rem !important;
+            }
+        }
+
+        > .btn.dropdown-toggle {
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+            max-width: 35vw;
+
+            @media (max-width: 768px) {
+                max-width: 100%;
+            }
+        }
+    }
+
+    .dropdown-menu[x-placement^='bottom'] {
+        right: 0;
+        overflow-x: hidden;
+
+        > .dropdown-item {
+            overflow-wrap: break-word;
+            white-space: normal;
+            border-top: 1px solid darkgray;
+
+            &:last-child {
+                border-bottom: 1px solid darkgray;
+            }
+        }
+    }
+
+    .ngdialog {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+        &.ngdialog-theme-plain {
+            padding-bottom: 16px;
+            padding-top: 16px;
+
+            .ngdialog-content {
+                width: auto;
+                max-width: 75%;
+                padding-right: calc(1em + 30px);
+                border-radius: 0.25rem;
+                margin: 0 5px;
+
+                @media (max-width: 768px) {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+
+    .fixed-top {
+        position: static;
+        width: 100%;
+        flex-grow: 0;
+    }
+
+    body
+        > .container:nth-child(2)
+        > div:first-child
+        > div:first-child
+        > br:first-child,
+    body
+        > div:nth-child(2)
+        > div:first-child
+        > .min-height-600:nth-child(2)
+        > div:first-child
+        > p:first-child {
+        display: none;
+    }
+
+    .min-height-600 {
+        padding: 0 0.5rem;
+
+        > .container {
+            display: flex;
+            justify-content: center;
+            overflow-x: auto;
+            overflow-y: auto;
+            padding: 0;
+            max-width: 90vw;
+            margin-bottom: 0.25rem;
+            margin-right: 1px;
+
+            > .table-responsive {
+                width: auto;
+            }
+        }
+    }
+
+    /* add bottom padding for table */
+    table#tableCanvas {
+        padding-bottom: 0.5rem;
+        overflow-x: auto;
+        overflow-y: auto;
+
+        /* make student's column sticky to left */
+        & when (@stickyStudentColumn =1) {
+            td,
+            th {
+                &.text-left {
+                    position: sticky;
+                    left: -1px;
+                    z-index: 2;
+                    background-color: white;
+                }
+            }
+        }
+
+        /* fix displaying cells if student's name is too big */
+        td {
+            position: relative;
+
+            > .visit-full,
+            > .visit-none,
+            > .visit-important,
+            > .visit-half {
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
+
+            &.visit-empty {
+                position: relative;
+
+                &::after {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    content: '?';
+                }
+            }
+
+            /* fix for jelly table */
+            &.work-item:hover {
+                box-sizing: border-box;
+                cursor: pointer;
+                border: 1px solid #337ab7;
+                outline: 2px solid #337ab7;
+            }
+        }
+    }
+
+    ::-webkit-scrollbar {
+        width: 7px;
+        height: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #aaa;
+        border-radius: 3px;
+        transition: border-radius 0.15s linear;
+
+        &:hover {
+            border-radius: 6px;
+            background: #888;
+        }
+
+        &:active {
+            background: #666;
+        }
+    }
+}

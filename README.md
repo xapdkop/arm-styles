@@ -1,23 +1,27 @@
-# #fixarm
+# arm-styles [![Install #fix-arm directly with Stylus](https://img.shields.io/badge/Install-%23fix--arm-darkgreen.svg)](https://raw.githubusercontent.com/xapdkop/arm-styles/master/fix-arm.user.css) [![Install #darkify-arm directly with Stylus](https://img.shields.io/badge/Install-%23darkify--arm-black.svg)](https://raw.githubusercontent.com/xapdkop/arm-styles/master/darkify-arm.user.css)
 
 ## What is this?
 
-**#fixarm** is the user style for [ARM](http://arm.iipo.tu-bryansk.ru) that fixes a lot of bugs (such as broken mobile view or "jelly" table) and contains some features (like adaptive cards on the home page and others).
+**#fix-arm** is the user style for [ARM](http://arm.iipo.tu-bryansk.ru) that fixes a lot of bugs (such as broken mobile view or "jelly" table) and contains some features (like adaptive cards on the home page and others).
 
-**#fixarm-dark** is the just dark theme for ARM and ***doesn't contain any fixes***.
+**#darkify-arm** is the just dark theme for ARM.
 
 ## How to use
 
-To use **#fixarm** or **#fixarm-dark** you need Stylus extension for [Chrome](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne) (or any Chromium-based browsers) or for [Firefox](https://addons.mozilla.org/firefox/addon/styl-us/).
+To use **#fix-arm** or **#darkify-arm** on desktop you need [Stylus extension](https://github.com/openstyles/stylus#releases).
 
-To use on mobile you can install [Yandex.Browser](https://play.google.com/store/apps/details?id=com.yandex.browser) and then install Stylus like any Chrome extension (see above)
+To use on mobile you need to install [Kiwi Browser](https://play.google.com/store/apps/details?id=com.kiwibrowser.browser) or [Yandex.Browser](https://play.google.com/store/apps/details?id=com.yandex.browser) and then install Stylus like a desktop Chrome extension.
 
 #### There are 2 branches: stable and beta:
 - **stable**: 
-    - [#fixarm](https://raw.githubusercontent.com/xapdkop/fixarm/master/fixarm.user.css)
-    - [#fixarm-dark](https://raw.githubusercontent.com/xapdkop/fixarm/master/fixarm-dark.user.css)
+    - [#fix-arm](https://raw.githubusercontent.com/xapdkop/arm-styles/master/fix-arm.user.css)
+    - [#darkify-arm](https://raw.githubusercontent.com/xapdkop/arm-styles/master/darkify-arm.user.css)
 - **beta**: 
-    - [#fixarm](https://raw.githubusercontent.com/xapdkop/fixarm/beta/fixarm.user.css)
-    - [#fixarm-dark](https://raw.githubusercontent.com/xapdkop/fixarm/beta/fixarm-dark.user.css)
+    - [#fix-arm](https://raw.githubusercontent.com/xapdkop/arm-styles/beta/fix-arm.user.css)
+    - [#darkify-arm](https://raw.githubusercontent.com/xapdkop/arm-styles/beta/darkify-arm.user.css)
 
-You can just click on any style and it will be opened for install (if you have installed Stylus of course).
+You can just click on any style and it will be opened for install (if you have installed Stylus).
+
+## Options
+
+By default, the students column on the course page will stick to the left border when scrolling. To prevent it disable "**Make the students column sticky**" option in the style settings.
