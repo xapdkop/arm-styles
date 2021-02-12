@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           #fix-arm
 @namespace      https://github.com/xapdkop
-@version        1.3.0-beta5
+@version        1.3.0
 @description    This userstyle fixes some of bugs of arm.iipo.tu-bryansk.ru
 @homepageURL    https://github.com/xapdkop/arm-styles
 @updateURL      https://raw.githubusercontent.com/xapdkop/arm-styles/beta/fix-arm.user.css
@@ -10,6 +10,7 @@
 @preprocessor   less
 @var checkbox stickyStudentColumn "Make the students column sticky" 1
 ==/UserStyle== */
+
 @-moz-document domain("arm.iipo.tu-bryansk.ru") {
     html,
     body {

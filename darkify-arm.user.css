@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           #darkify-arm
 @namespace      https://github.com/xapdkop
-@version        1.3.0-beta4
+@version        1.3.0
 @description    This is dark theme for arm.iipo.tu-bryansk.ru
 @homepageURL    https://github.com/xapdkop/arm-styles
 @updateURL      https://raw.githubusercontent.com/xapdkop/arm-styles/beta/darkify-arm.user.css
@@ -9,6 +9,7 @@
 @license        GPL-3.0-only
 @preprocessor   less
 ==/UserStyle== */
+
 @-moz-document domain("arm.iipo.tu-bryansk.ru") {
     body {
         color: #ddd;
